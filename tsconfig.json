@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "esnext"
+    ],
+    "paths" : {"*": ["@types/*"]},
+    "rootDir": ".",
+    "baseUrl": "src/",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
+}

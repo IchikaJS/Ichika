@@ -1,0 +1,23 @@
+{
+  "name": "Ichika",
+  "version": "1.0.0",
+  "description": "A multipurpose bot for your Discord server",
+  "main": "app.ts",
+  "repository": "https://github.com/IchikaJS/Ichika",
+  "author": "Dylan Ogle <delxhq@funo.network>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node -r ts-node/register main.ts",
+    "gb": "barrelsby -d src -l below -D -q -S"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.6",
+    "barrelsby": "^2.2.0",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.7.2"
+  }
+}
