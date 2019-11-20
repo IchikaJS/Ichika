@@ -1,4 +1,4 @@
-import { Client, Message, Guild, Channel, GuildChannel } from 'discord.js'
+import { Client, Message, Guild } from 'discord.js'
 import { Command } from './Command'
 import * as cmdList from './commands'
 import { Logger } from './util/Logger'
