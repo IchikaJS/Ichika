@@ -1,8 +1,11 @@
-import { Client, Message } from 'discord.js'
+import { Client, Message, Guild, Channel, GuildChannel } from 'discord.js'
 import { Command } from './Command'
 import * as cmdList from './commands'
+import { Logger } from './util/Logger'
 
 export class Ichika extends Client {
+
+  private logger: Logger = new Logger('Ichika')
 
   private commands: {
     [k: string]: Command,
@@ -12,12 +15,15 @@ export class Ichika extends Client {
     super()
 
     this.on('message', message => this.onMessageReceived(message))
+    this.on('guildCreate', guild => this.onGuildJoin(guild))
   }
 
   public async init() {
     await this.login(this.loginToken)
 
-    console.log('Logged in as ' + this.user.username)
+    this.logger.info('Logged in as ' + this.user.username)
+
+    this.user.setActivity('!help | Ichika', { type: 'PLAYING' })
 
     await this.loadCommands()
   }
@@ -70,5 +76,18 @@ export class Ichika extends Client {
         //
       })
     }
+  }
+
+  private async onGuildJoin(guild: Guild) {
+    guild.owner.send(`
+      Thanks for adding me to **${guild.name}**!
+      I am currently in early development so don't expect much from me yet!
+      You can find my commands on my website at **https://ichika.xyz**!
+      if you need any support, hop on over to **https://discord.gg/XTXD57M** and grab the developers attention!
+
+      If you come across any bugs, please report them over at **https://github.com/IchikaJS/Ichika/issues**
+
+      Thanks!
+    `.replace(/\s\s+/g, '\n'))
   }
 }
