@@ -1,4 +1,4 @@
-import { Message } from 'discord.js'
+import { Message, PermissionString } from 'discord.js'
 
 import { Ichika } from './Ichika'
 
@@ -19,5 +19,9 @@ export abstract class Command {
   public permissions: string[] = []
 
   public abstract run(ichika: Ichika, message: Message, args: string[]): Promise<any>
+
+  public get perms(): PermissionString[] {
+    return (this.permissions as PermissionString[])
+  }
 
 }

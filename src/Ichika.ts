@@ -1,4 +1,4 @@
-import { Client, Message, Guild } from 'discord.js'
+import { Client, Message } from 'discord.js'
 import { Command } from './Command'
 import * as cmdList from './commands'
 import { Logger } from './util/Logger'
@@ -7,15 +7,16 @@ export class Ichika extends Client {
 
   private logger: Logger = new Logger('Ichika')
 
-  private commands: {
+  public commands: {
     [k: string]: Command,
   } = {}
 
+  public cmds: Command[] = []
+  
   constructor(private loginToken: string) {
     super()
 
     this.on('message', message => this.onMessageReceived(message))
-    this.on('guildCreate', guild => this.onGuildJoin(guild))
   }
 
   public async init() {
@@ -35,6 +36,7 @@ export class Ichika extends Client {
     for await (const command of Object.keys(cmds)) {
       const cmd = cmds[command]
       this.commands[cmd.name.toLowerCase()] = cmd
+      this.cmds.push(cmd)
 
       if (cmd.aliases) {
         for await (const alias of cmd.aliases) {
@@ -72,22 +74,12 @@ export class Ichika extends Client {
       if (!this.commands[cmdStr]) return
 
       const cmd = this.commands[cmdStr]
+
+      if (!message.member.permissions.has(cmd.perms)) return message.channel.send(`⚠ You do not have the permissions \`${cmd.perms}\` to use this command`)
+
       await cmd.run(this, message, args).catch(err => {
         //
       })
     }
-  }
-
-  private async onGuildJoin(guild: Guild) {
-    guild.owner.send(`
-      Thanks for adding me to **${guild.name}**!
-      I am currently in early development so don't expect much from me yet!
-      You can find my commands on my website at **https://ichika.xyz**!
-      if you need any support, hop on over to **https://discord.gg/XTXD57M** and grab the developers attention!
-
-      If you come across any bugs, please report them over at **https://github.com/IchikaJS/Ichika/issues**
-
-      Thanks!
-    `.replace(/\s\s+/g, '\n'))
   }
 }
