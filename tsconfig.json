@@ -10,7 +10,7 @@
     "rootDir": ".",
     "baseUrl": "src/",
     "moduleResolution": "node",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "resolveJsonModule": true
   }

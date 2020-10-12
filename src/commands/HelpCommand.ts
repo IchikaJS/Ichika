@@ -1,4 +1,4 @@
-import { Message, RichEmbed } from 'discord.js'
+import { Message, MessageEmbed } from 'discord.js'
 
 import { Category, Command } from '../Command'
 import { Ichika } from '../Ichika'
@@ -16,10 +16,10 @@ export const HelpCommand = new (class extends Command {
 
     const commandStr = ichika.cmds.map(cmd => cmd.name).join(' ')
 
-    message.channel.send(new RichEmbed()
+    message.channel.send(new MessageEmbed()
       .setTitle('Commands')
       .setColor(Color.Ichika)
-      .setThumbnail(ichika.user.avatarURL)
+      .setThumbnail(ichika.user.avatarURL())
       .addField('All commands', commandStr)
     )
   }

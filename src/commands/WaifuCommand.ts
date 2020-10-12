@@ -1,4 +1,4 @@
-import { Message, RichEmbed } from 'discord.js'
+import { Message, MessageEmbed } from 'discord.js'
 
 import { Category, Command } from '../Command'
 import { Ichika } from '../Ichika'
@@ -16,7 +16,7 @@ export const WaifuCommand = new (class extends Command {
     const body: any = await fetch('http://api.cutegirls.moe/json')
       .then(res => res.json())
 
-    message.channel.send(new RichEmbed()
+    message.channel.send(new MessageEmbed()
       .setTitle(body['data'].title)
       .setDescription(body['data'].source)
       .setImage(body['data'].image)

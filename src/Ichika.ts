@@ -1,7 +1,7 @@
 import { Client, Message } from 'discord.js'
 import { Command } from './Command'
 import * as cmdList from './commands'
-import { Logger } from './util/Logger'
+import Logger from '@bwatton/logger'
 
 export class Ichika extends Client {
 

@@ -1,6 +1,5 @@
 import { Ichika as IchikaClass} from './src/Ichika'
-import { io, port } from './src/util/socket'
-import { Logger } from './src/util/Logger'
+import Logger from '@bwatton/logger'
 
 if (!process.env.DISCORD_TOKEN) throw new Error('DISCORD_TOKEN is not set in ENV')
 
@@ -10,7 +9,4 @@ const logger: Logger = new Logger('Core')
 
 ;(async() => {
   await Ichika.init()
-
-  io.listen(port)
-  logger.info(`IO listening on *:${port}`)
 })()
