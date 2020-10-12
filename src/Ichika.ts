@@ -2,6 +2,7 @@ import { Client, Message } from 'discord.js'
 import { Command } from './Command'
 import * as cmdList from './commands'
 import Logger from '@bwatton/logger'
+import moment from 'moment'
 
 export class Ichika extends Client {
 
@@ -12,7 +13,7 @@ export class Ichika extends Client {
   } = {}
 
   public cmds: Command[] = []
-  
+
   constructor(private loginToken: string) {
     super()
 
@@ -81,5 +82,9 @@ export class Ichika extends Client {
         //
       })
     }
+  }
+
+  public get botUptime() {
+    return moment.duration(this.uptime)
   }
 }

@@ -4,4 +4,5 @@
 
 export * from './HelpCommand'
 export * from './KickCommand'
+export * from './StatsCommand'
 export * from './WaifuCommand'
