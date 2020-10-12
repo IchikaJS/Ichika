@@ -7,7 +7,6 @@ export enum Category {
   Music,
   Utilities,
   Moderation,
-  ImageManipulation,
 }
 
 export abstract class Command {
