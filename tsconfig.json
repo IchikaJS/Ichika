@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ESNEXT",
     "module": "commonjs",
-    "lib": [
-      "es6",
-      "esnext"
-    ],
-    "paths" : {"*": ["@types/*"]},
-    "rootDir": ".",
-    "baseUrl": "src/",
+    "lib": [],
+    "outDir": "lib",
+    "rootDir": "./src",
     "moduleResolution": "node",
     "strict": false,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "typeRoots": [
+      "./src/@types/",
+      "./node_modules/@types",
+    ]
   }
 }

@@ -2,7 +2,7 @@ import { Client, Message } from 'discord.js'
 import { Command } from './Command'
 import * as cmdList from './commands'
 import Logger from '@bwatton/logger'
-import moment from 'moment'
+import moment, { Duration } from 'moment'
 
 export class Ichika extends Client {
 
@@ -20,7 +20,7 @@ export class Ichika extends Client {
     this.on('message', message => this.onMessageReceived(message))
   }
 
-  public async init() {
+  public async init(): Promise<any> {
     await this.login(this.loginToken)
 
     this.logger.info('Logged in as ' + this.user.username)
@@ -48,7 +48,7 @@ export class Ichika extends Client {
   }
 
   private escape(str: string) {
-    return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+    return str.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
   }
 
   private async onMessageReceived(message: Message) {
@@ -84,7 +84,7 @@ export class Ichika extends Client {
     }
   }
 
-  public get botUptime() {
+  public get botUptime(): Duration {
     return moment.duration(this.uptime)
   }
 }

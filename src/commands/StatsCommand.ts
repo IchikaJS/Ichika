@@ -13,11 +13,11 @@ export const StatsCommand = new (class extends Command {
 
     message.channel.send(
       new MessageEmbed()
-      .setDescription('𝓣𝓮𝓬𝓱𝓷𝓲𝓬𝓪𝓵 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷')
-      .addField('Servers', this.format(ichika.guilds.cache.size))
-      .addField('Users', this.format(ichika.users.cache.size))
-      .addField('Channels', this.format(ichika.channels.cache.size))
-      .addField('Uptime', this.format(ichika.botUptime))
+        .setDescription('𝓣𝓮𝓬𝓱𝓷𝓲𝓬𝓪𝓵 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷')
+        .addField('Servers', this.format(ichika.guilds.cache.size))
+        .addField('Users', this.format(ichika.users.cache.size))
+        .addField('Channels', this.format(ichika.channels.cache.size))
+        .addField('Uptime', this.format(ichika.botUptime)),
     )
   }
 

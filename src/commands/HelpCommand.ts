@@ -13,14 +13,13 @@ export const HelpCommand = new (class extends Command {
   public permissions = []
 
   public async run(ichika: Ichika, message: Message) {
-
     const commandStr = ichika.cmds.map(cmd => cmd.name).join(' ')
 
     message.channel.send(new MessageEmbed()
       .setTitle('Commands')
       .setColor(Color.Ichika)
       .setThumbnail(ichika.user.avatarURL())
-      .addField('All commands', commandStr)
+      .addField('All commands', commandStr),
     )
   }
 })()
