@@ -3,3 +3,4 @@
  */
 
 export * from './Color'
+export * from './Permissions'

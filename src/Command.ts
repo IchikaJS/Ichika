@@ -1,4 +1,5 @@
 import { Message, PermissionString } from 'discord.js'
+import { Permission } from './util/Permissions'
 
 import { Ichika } from './Ichika'
 
@@ -15,7 +16,7 @@ export abstract class Command {
   public abstract category: Category
   public abstract description: string
   public aliases: string[] = []
-  public permissions: string[] = []
+  public permissions: Permission[] = []
 
   public abstract run(ichika: Ichika, message: Message, args: string[]): Promise<any>
 
