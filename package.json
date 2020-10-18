@@ -7,7 +7,7 @@
   "author": "Dylan Ogle <delxhq0@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node -r ts-node/register main.ts",
+    "start": "nodemon",
     "gb": "barrelsby -d src -l below -D -q -S"
   },
   "dependencies": {

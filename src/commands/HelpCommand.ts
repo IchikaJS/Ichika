@@ -10,7 +10,6 @@ export const HelpCommand = new (class extends Command {
   public category = Category.Utilities
   public description = 'List the set of commands Ichika has in store'
   public aliases = ['h']
-  public permissions = []
 
   public async run(ichika: Ichika, message: Message) {
     const commandStr = ichika.cmds.map(cmd => cmd.name).join(' ')

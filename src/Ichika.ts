@@ -76,7 +76,9 @@ export class Ichika extends Client {
 
       const cmd = this.commands[cmdStr]
 
-      if (!message.member.permissions.has(cmd.perms)) return message.channel.send(`⚠ You do not have the permissions \`${cmd.perms}\` to use this command`)
+      if (!message.member.permissions.has(cmd.perms)) {
+        return message.channel.send(`⚠ You do not have the permissions \`${cmd.perms}\` to use this command`)
+      }
 
       await cmd.run(this, message, args).catch(err => {
         //

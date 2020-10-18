@@ -21,7 +21,7 @@ export const WaifuCommand = new (class extends Command {
       .setDescription(body['data'].source)
       .setImage(body['data'].image)
       .setURL(body['data'].link)
-      .setFooter(body['data'].author)
+      .setFooter(body['data'].author),
     )
   }
 })
