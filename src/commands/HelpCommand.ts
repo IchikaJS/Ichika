@@ -12,13 +12,14 @@ export const HelpCommand = new (class extends Command {
   public aliases = ['h']
 
   public async run(ichika: Ichika, message: Message) {
-    const commandStr = ichika.cmds.map(cmd => cmd.name).join(' ')
-
-    message.channel.send(new MessageEmbed()
-      .setTitle('Commands')
+    // const commandStr = ichika.cmds.map(cmd => cmd.name)
+    const helpEmbed = new MessageEmbed()
+      .setTitle('Available Commands (´｡• ω •｡`)')
       .setColor(Color.Ichika)
-      .setThumbnail(ichika.user.avatarURL())
-      .addField('All commands', commandStr),
-    )
+
+    for (const value of Object.values(Category)) {
+      await helpEmbed.addField(`\`${value}\``, `!help ${value.toString().toLowerCase()}`, true)
+    }
+    message.channel.send(helpEmbed)
   }
-})()
+})

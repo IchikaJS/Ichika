@@ -4,10 +4,10 @@ import { Permission } from './util/Permissions'
 import { Ichika } from './Ichika'
 
 export enum Category {
-  Fun,
-  Music,
-  Utilities,
-  Moderation,
+  Fun = 'Fun',
+  Music = 'Music',
+  Utilities = 'Utilities',
+  Moderation = 'Moderation',
 }
 
 export abstract class Command {
