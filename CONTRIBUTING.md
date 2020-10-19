@@ -4,12 +4,12 @@ Hello, we're glad to see you're considering contributing to the project! To ensu
 
 ## Pull Request Steps
 The follow steps should be followed (in order) when creating a pull request:
-1. Fork the repo to your account
-2. Clone your forked repo to your device (ignore this step if you plan to make changes directly on GitHub)
-3. Open the project (`cd Ichika `) and install dependencies (`yarn` or `npm i`, see below)
+1. Fork the repository to your account
+2. Clone your forked repository to your device (ignore this step if you plan to make changes directly on GitHub)
+3. Open the project (`cd Ichika `) and install dependencies (`yarn` or `npm i`, see **[#Packages](https://github.com/IchikaJS/Ichika/blob/master/CONTRIBUTING.md#packages)**)
 4. Make the neccessary changes to the codebase
 5. `commit` and `push` your changes to your repo (again, ignore if you're making changes on GitHub)
-6. Create a pull request from your repo into the [Ichika repo](https://github.com/IchikaJS/Ichika)
+6. Create a pull request from your repository into the [Ichika repository](https://github.com/IchikaJS/Ichika)
 
 After following these steps correctly, your pull request will be reviewed and, if all goes according to plan, merged into `master`.
 
