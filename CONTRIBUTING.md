@@ -1,6 +1,6 @@
 # Ichika Contribution Guidelines
 
-Hello, we're glad to see you're considering contributing to the project! To ensure that work on Bedrock.js goes as smoothly as possible, we have some guidelines which all external contributors are required to follow. These are a set of basic rules which attempt to ensure that everyone is on the same page. 
+Hello, we're glad to see you're considering contributing to the project! To ensure that work on Ichika goes as smoothly as possible, we have some guidelines which all external contributors are required to follow. These are a set of basic rules which attempt to ensure that everyone is on the same page. 
 
 ## Pull Request Steps
 The follow steps should be followed (in order) when creating a pull request:
