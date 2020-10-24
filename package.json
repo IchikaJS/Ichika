@@ -4,7 +4,7 @@
   "description": "A multipurpose bot for your Discord server",
   "main": "main.ts",
   "repository": "https://github.com/IchikaJS/Ichika",
-  "author": "Dylan Ogle <delxhq0@gmail.com>",
+  "author": "Dylan Ogle <delxhq0@gmail.com>, Bea Irving <beashuker@gmail.com>",
   "license": "GPL-3.0",
   "keywords": [
     "nodejs",
