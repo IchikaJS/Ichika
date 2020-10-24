@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 
 export class API {
 
-  constructor(public uri: string) { }
+  constructor(private uri: string) { }
 
   public async get(path: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
