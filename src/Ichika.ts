@@ -2,11 +2,13 @@ import { Client, Message } from 'discord.js'
 import { Command } from './Command'
 import * as cmdList from './commands'
 import Logger from '@bwatton/logger'
-import moment, { Duration } from 'moment'
+import { API } from './util/API'
 
 export class Ichika extends Client {
 
   private logger: Logger = new Logger('Ichika')
+
+  public ichAPI: API = new API('http://localhost:3000')
 
   public commands: {
     [k: string]: Command,
@@ -25,7 +27,10 @@ export class Ichika extends Client {
 
     this.logger.info('Logged in as ' + this.user.username)
 
-    this.user.setActivity('!help | Ichika', { type: 'PLAYING' })
+    // this.user.setActivity('!help | Ichika', { type: 'PLAYING' })
+
+    this.ichAPI.get('status')
+      .then(response => this.user.setActivity(response.status, { type: 'PLAYING' }))
 
     await this.loadCommands()
   }
@@ -84,9 +89,5 @@ export class Ichika extends Client {
         //
       })
     }
-  }
-
-  public get botUptime(): Duration {
-    return moment.duration(this.uptime)
   }
 }

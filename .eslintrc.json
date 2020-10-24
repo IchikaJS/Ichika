@@ -47,6 +47,7 @@
     "deprecation/deprecation": "warn",
     "@typescript-eslint/no-explicit-any": "off",
     "no-case-declarations": "off",
+    "no-async-promise-executor": "off",
     "@typescript-eslint/no-empty-function": "off"
   },
   "root": true
