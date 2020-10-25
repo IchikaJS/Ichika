@@ -5,5 +5,6 @@
 export * from './FortuneCommand'
 export * from './HelpCommand'
 export * from './KickCommand'
+export * from './ReloadCommand'
 export * from './StatsCommand'
 export * from './WaifuCommand'

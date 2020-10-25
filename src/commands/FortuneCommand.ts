@@ -14,24 +14,24 @@ export const FortuneCommand = new (class extends Command {
     const question = args.join(' ')
     if (!question) return message.channel.send('Please provide a question for me to reply with.')
 
-    const responses = [
-      'Without a doubt.',
-      'Yes, definitely',
-      'Most likely',
-      'Outlook good',
-      'Yes!',
-      'Reply hazy, try again',
-      'Ask again later',
-      'Can\'t tell you now',
-      'I can\'t predict it',
-      'Don\'t count on it',
-      'My sources say no',
-      'Outlook not so good',
-      'Absolutely not.',
-      'Very doubtful',
-    ]
+    // const responses = [
+    //   'Without a doubt.',
+    //   'Yes, definitely',
+    //   'Most likely',
+    //   'Outlook good',
+    //   'Yes!',
+    //   'Reply hazy, try again',
+    //   'Ask again later',
+    //   'Can\'t tell you now',
+    //   'I can\'t predict it',
+    //   'Don\'t count on it',
+    //   'My sources say no',
+    //   'Outlook not so good',
+    //   'Absolutely not.',
+    //   'Very doubtful',
+    // ]
 
-    const response = responses[Math.floor(Math.random() * responses.length)]
+    const responseArr = ichika.responses[Math.floor(Math.random() * ichika.responses.length)]
 
     message.channel.send(
       new MessageEmbed()
@@ -39,7 +39,7 @@ export const FortuneCommand = new (class extends Command {
         .setDescription('- Get Ichika\'s thoughts on a question!')
         .setColor('#dee8eb')
         .addField(`${message.author.username}'s Question:`, question)
-        .addField('My reply:', response)
+        .addField('My reply:', responseArr.response)
         .setFooter(`Requested by ${message.author.username}`, message.author.displayAvatarURL({ dynamic: true })),
     )
   }

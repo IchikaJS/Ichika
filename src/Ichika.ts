@@ -3,6 +3,7 @@ import { Command } from './Command'
 import * as cmdList from './commands'
 import Logger from '@bwatton/logger'
 import { API } from './util/API'
+import { IResponse, IStatus } from './types/types'
 
 export class Ichika extends Client {
 
@@ -16,6 +17,9 @@ export class Ichika extends Client {
 
   public cmds: Command[] = []
 
+  public statuses: IStatus[] = []
+  public responses: IResponse[] = []
+
   constructor(private loginToken: string) {
     super()
 
@@ -24,15 +28,16 @@ export class Ichika extends Client {
 
   public async init(): Promise<any> {
     await this.login(this.loginToken)
+    await this.loadCommands()
 
     this.logger.info('Logged in as ' + this.user.username)
 
-    // this.user.setActivity('!help | Ichika', { type: 'PLAYING' })
+    await this.reload()
 
-    this.ichAPI.get('status')
-      .then(response => this.user.setActivity(response.status, { type: 'PLAYING' }))
-
-    await this.loadCommands()
+    setInterval(() => {
+      const status = this.statuses[Math.floor(Math.random() * this.statuses.length)] as any
+      this.user.setActivity(status.status, { type: status.type })
+    }, 25 * 1000)
   }
 
   private async loadCommands() {
@@ -54,6 +59,25 @@ export class Ichika extends Client {
 
   private escape(str: string) {
     return str.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
+  }
+
+  public async reload(): Promise<any> {
+    if (this.statuses.length > 0) this.statuses = []
+    if (this.responses.length > 0) this.responses = []
+
+    await this.ichAPI.get('statuses')
+      .then(response => {
+        for (let i = 0; i < response.statuses.length; i++) {
+          this.statuses.push(response.statuses[i])
+        }
+      })
+
+    await this.ichAPI.get('responses')
+      .then(response => {
+        for (let i = 0; i < response.responses.length; i++) {
+          this.responses.push(response.responses[i])
+        }
+      })
   }
 
   private async onMessageReceived(message: Message) {
