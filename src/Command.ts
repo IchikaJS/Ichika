@@ -18,6 +18,8 @@ export abstract class Command {
   public aliases: string[] = []
   public permissions: Permission[] = []
 
+  public showInHelp = true
+
   public abstract run(ichika: Ichika, message: Message, args: string[]): Promise<any>
 
   public get perms(): PermissionString[] {
